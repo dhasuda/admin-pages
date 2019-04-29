@@ -18,6 +18,7 @@ export const widgets = {
   BaseInput: BaseInput as Widget,
   CheckboxWidget: Toggle as Widget,
   IOMessage: IOMessage as Widget,
+  Image: ImageUploader as Widget,
   RadioWidget: Radio as Widget,
   SelectWidget: Dropdown as Widget,
   TextareaWidget: TextArea as Widget,
