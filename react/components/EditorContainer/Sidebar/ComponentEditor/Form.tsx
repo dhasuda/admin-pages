@@ -11,12 +11,20 @@ import ImageUploader from '../../../form/ImageUploader'
 import IOMessage from '../../../form/IOMessage'
 import ObjectFieldTemplate from '../../../form/ObjectFieldTemplate'
 import Radio from '../../../form/Radio'
+import BrandSelector from '../../../form/selectors/BrandSelector'
+import CategorySelector from '../../../form/selectors/CategorySelector'
+import CollectionSelector from '../../../form/selectors/CollectionSelector'
+import DepartmentSelector from '../../../form/selectors/DepartmentSelector'
 import TextArea from '../../../form/TextArea'
 import Toggle from '../../../form/Toggle'
 
 export const widgets = {
   BaseInput: BaseInput as Widget,
+  Brand: BrandSelector as Widget,
+  Category: CategorySelector as Widget,
   CheckboxWidget: Toggle as Widget,
+  Collection: CollectionSelector as Widget,
+  Department: DepartmentSelector as Widget,
   IOMessage: IOMessage as Widget,
   RadioWidget: Radio as Widget,
   SelectWidget: Dropdown as Widget,
