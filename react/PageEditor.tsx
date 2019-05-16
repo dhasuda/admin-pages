@@ -8,7 +8,8 @@ import { useAdminLoadingContext } from './utils/AdminLoadingContext'
 interface PageEditorProps {
   params: {
     targetPath: string
-  }
+  },
+  query: any
 }
 
 let messages = {}
@@ -41,7 +42,7 @@ const PageEditor: ComponentWithCustomMessage = (props: PageEditorProps) => {
     <div className="h-100 overflow-y-auto bg-light-silver">
       <MessagesContext.Provider value={messagesContextValue}>
         <EditorProvider>
-          <StoreIframe path={path} />
+          <StoreIframe path={path} query={props.query}/>
         </EditorProvider>
       </MessagesContext.Provider>
     </div>

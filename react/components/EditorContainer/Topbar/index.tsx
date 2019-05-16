@@ -10,6 +10,7 @@ interface Props {
   changeMode: (mode?: StoreEditMode) => void
   mode?: StoreEditMode
   urlPath: string
+  runtime: RenderContext
 }
 
 const availableCultures = [{
@@ -20,14 +21,19 @@ const availableCultures = [{
   label: 'Português (pt-BR)',
   value: 'pt-BR',
 },
+{
+  label: 'Espanhol (es-AR)',
+  value: 'es-AR',
+},
 ]
 
 const Topbar: React.FunctionComponent<Props> = ({
   changeMode,
   mode,
   urlPath,
+  runtime,
 }) => {
-  const [culture, setCulture] = useState({locale: 'en-US'})
+  const [culture, setCulture] = useState({...runtime.culture})
   return (
     <div className="ph5 f6 h-3em w-100 flex justify-between items-center">
       <div className="flex items-stretch">
@@ -53,11 +59,13 @@ const Topbar: React.FunctionComponent<Props> = ({
                     size="small"
                     options={availableCultures}
                     value={culture.locale}
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                      const { emitter } = runtime
+                      emitter.emit('localesChanged', e.target.value)
                       setCulture({
                         ...culture,
                         locale: e.target.value,
-                      })}
+                      })}}
                   />
                 </div>
               </div>

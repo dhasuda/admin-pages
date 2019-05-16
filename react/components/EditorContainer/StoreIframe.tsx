@@ -1,10 +1,12 @@
+import { isEmpty } from 'ramda'
 import React, { useEffect, useRef } from 'react'
 
 interface Props {
   path?: string
+  query: string
 }
 
-const StoreIframe: React.FunctionComponent<Props> = React.memo(({ path }) => {
+const StoreIframe: React.FunctionComponent<Props> = React.memo(({ path, query }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {
@@ -23,12 +25,14 @@ const StoreIframe: React.FunctionComponent<Props> = React.memo(({ path }) => {
     }
   }, [])
 
+  const serializedQuery = !isEmpty(query)? '?' + Object.entries(query).map(([k, v]) => `${k}=${v}`).join('&'): ''
+
   return (
     <iframe
       id="store-iframe"
       className="w-100 h-100"
       ref={iframeRef}
-      src={path ? `/${path}` : '/'}
+      src={path ? `/${path}?${serializedQuery}` : `/?${serializedQuery}`}
       frameBorder="0"
     />
   )

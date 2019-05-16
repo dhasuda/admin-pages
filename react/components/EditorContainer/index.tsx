@@ -139,6 +139,7 @@ export default class EditorContainer extends Component<Props, State> {
                   }}
                   mode={storeEditMode}
                   urlPath={iframeWindow.location.pathname}
+                  runtime={runtime}
                 />
               )}
               <div
