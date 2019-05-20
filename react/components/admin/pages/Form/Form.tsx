@@ -59,6 +59,10 @@ const messages = defineMessages({
     defaultMessage: 'Title',
     id: 'admin/pages.admin.pages.form.field.title',
   },
+  pathHint: {
+    defaultMessage: '/my-custom-page',
+    id: 'admin/pages.admin.pages.form.details.path-hint',
+  },
 })
 
 const Form: React.FunctionComponent<Props> = ({
@@ -103,6 +107,7 @@ const Form: React.FunctionComponent<Props> = ({
         disabled={!isInfoEditable}
         label={intl.formatMessage(messages.fieldPath)}
         onChange={detailChangeHandlerGetter('path')}
+        placeholder={intl.formatMessage(messages.pathHint)}
         required
         value={path}
         errorMessage={
