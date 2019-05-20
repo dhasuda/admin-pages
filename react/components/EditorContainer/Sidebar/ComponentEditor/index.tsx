@@ -24,6 +24,7 @@ interface CustomProps {
   onChange: FormProps<{ formData: object }>['onChange']
   onClose: () => void
   onSave: () => void
+  onTitleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   shouldDisableSaveButton: boolean
   title?: ComponentSchema['title']
 }
@@ -75,6 +76,7 @@ const ComponentEditor: React.FunctionComponent<Props> = ({
   onChange,
   onClose,
   onSave,
+  onTitleChange,
   shouldDisableSaveButton,
   title,
 }) => {
@@ -99,9 +101,11 @@ const ComponentEditor: React.FunctionComponent<Props> = ({
   return (
     <Fragment>
       <EditorHeader
+        isTitleEditable={true}
         isLoading={isLoading}
         onClose={onClose}
         onSave={onSave}
+        onTitleChange={onTitleChange}
         shouldDisableSaveButton={shouldDisableSaveButton}
         title={title || componentSchema.title}
       />

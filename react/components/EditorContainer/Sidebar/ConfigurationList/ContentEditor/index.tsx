@@ -25,6 +25,7 @@ interface Props {
   onFormChange: FormProps<{ formData: object }>['onChange']
   onLabelChange: (event: Event) => void
   onSave: () => void
+  onTitleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   shouldDisableSaveButton: boolean
 }
 
@@ -43,6 +44,7 @@ const ContentEditor: React.FunctionComponent<Props> = ({
   onFormChange,
   onLabelChange,
   onSave,
+  onTitleChange,
   shouldDisableSaveButton,
 }) => (
   <ComponentEditor
@@ -69,6 +71,7 @@ const ContentEditor: React.FunctionComponent<Props> = ({
     onChange={onFormChange}
     onClose={onClose}
     onSave={onSave}
+    onTitleChange={onTitleChange}
     shouldDisableSaveButton={shouldDisableSaveButton}
     title={componentTitle}
   />
