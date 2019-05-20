@@ -17,13 +17,11 @@ interface Props {
   isDefault: boolean
   isLoading: boolean
   isSitewide: boolean
-  label?: string
   onClose: () => void
   onConditionChange: (
     changes: Partial<ExtensionConfiguration['condition']>
   ) => void
   onFormChange: FormProps<{ formData: object }>['onChange']
-  onLabelChange: (event: Event) => void
   onSave: () => void
   onTitleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   shouldDisableSaveButton: boolean
@@ -38,30 +36,25 @@ const ContentEditor: React.FunctionComponent<Props> = ({
   isDefault,
   isLoading,
   isSitewide,
-  label,
   onClose,
   onConditionChange,
   onFormChange,
-  onLabelChange,
   onSave,
   onTitleChange,
   shouldDisableSaveButton,
 }) => (
   <ComponentEditor
     after={
-      <Fragment>
-        <div className="pa5 bt bw1 b--light-silver">
-          <LabelEditor onChange={onLabelChange} value={label || ''} />
-        </div>
-        {!isDefault ? (
-          <ConditionControls
-            condition={condition}
-            isSitewide={isSitewide}
-            pageContext={iframeRuntime.route.pageContext}
-            onConditionChange={onConditionChange}
-          />
-        ) : null}
-      </Fragment>
+      !isDefault ? (
+        <ConditionControls
+          condition={condition}
+          isSitewide={isSitewide}
+          pageContext={iframeRuntime.route.pageContext}
+          onConditionChange={onConditionChange}
+        />
+      ) : (
+        undefined
+      )
     }
     contentSchema={contentSchema}
     data={data}

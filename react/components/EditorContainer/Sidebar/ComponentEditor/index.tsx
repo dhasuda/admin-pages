@@ -107,7 +107,7 @@ const ComponentEditor: React.FunctionComponent<Props> = ({
         onSave={onSave}
         onTitleChange={onTitleChange}
         shouldDisableSaveButton={shouldDisableSaveButton}
-        title={title || componentSchema.title}
+        title={title}
       />
       <div className="h-100 overflow-y-auto overflow-x-hidden">
         <div className="relative bg-white flex flex-column justify-between size-editor w-100 pb3 ph5">

@@ -188,8 +188,7 @@ class ConfigurationList extends React.Component<Props, State> {
         onClose={this.handleContentBack}
         onConditionChange={this.handleConditionChange}
         onFormChange={this.handleFormChange}
-        onLabelChange={this.handleConfigurationLabelChange}
-        onTitleChange={this.handleConfigurationLabelChange}
+        onTitleChange={this.handleConfigurationTitleChange}
         onSave={this.handleConfigurationSave}
         shouldDisableSaveButton={!shouldEnableSaveButton}
       />
@@ -349,7 +348,7 @@ class ConfigurationList extends React.Component<Props, State> {
     })
   }
 
-  private handleConfigurationLabelChange = (
+  private handleConfigurationTitleChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { formMeta } = this.props

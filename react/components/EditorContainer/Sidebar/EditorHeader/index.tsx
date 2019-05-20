@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react'
+import { FormattedMessage } from 'react-intl'
 import { IconArrowBack, Input } from 'vtex.styleguide'
 
 import SaveButton from './SaveButton'
@@ -34,10 +35,22 @@ const EditorHeader: React.FunctionComponent<Props> = ({
               {title}
             </h4>
           )}
-          {isTitleEditable && title && (
-            <Input value={title} onChange={onTitleChange}>
-              {title}
-            </Input>
+          {isTitleEditable && (
+            <FormattedMessage
+              id="admin/pages.editor.components.configurations.defaultTitle"
+              defaultMessage="Untitled"
+            >
+              {placeholder => (
+                <Input
+                  size="small"
+                  value={title}
+                  onChange={onTitleChange}
+                  placeholder={placeholder}
+                >
+                  {title}
+                </Input>
+              )}
+            </FormattedMessage>
           )}
           {onSave && (
             <SaveButton
