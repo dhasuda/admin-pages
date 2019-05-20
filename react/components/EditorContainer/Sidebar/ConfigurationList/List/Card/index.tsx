@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl'
 
 import ActionMenu from '../../../ComponentList/SortableList/SortableListItem/ActionMenu'
@@ -87,6 +87,13 @@ const Card = ({
     },
   ]
 
+  const vendorName = useMemo(
+    () => {
+      return (configuration.origin || '').split('.')[0]
+    },
+    [configuration.origin]
+  )
+
   return (
     <div
       className={`relative mh5 mt5 pa5 ba br3 b--light-gray hover-bg-light-silver ${
@@ -122,6 +129,15 @@ const Card = ({
           textColor="mid-gray"
         />
       </div>
+      {isDefaultContent ? (
+        <FormattedMessage
+          id="admin/pages.editor.components.configurations.createdBy"
+          defaultMessage="created by {vendorName}"
+          values={{ vendorName }}
+        >
+          {text => <p className="f7 mb0"> {text} </p>}
+        </FormattedMessage>
+      ) : null}
       <div className="absolute top-0 right-0 mt1" onClick={stopPropagation}>
         <ActionMenu options={actionMenuOptions} />
       </div>

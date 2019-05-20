@@ -125,6 +125,7 @@
   "admin/pages.editor.components.condition.scope.title": "admin/pages.editor.components.condition.scope.title",
   "admin/pages.editor.components.condition.title": "admin/pages.editor.components.condition.title",
   "admin/pages.editor.components.configurations.button.create": "admin/pages.editor.components.configurations.button.create",
+  "admin/pages.editor.components.configurations.createdBy": "admin/pages.editor.components.configurations.createdBy",
   "admin/pages.editor.components.configurations.defaultTitle": "admin/pages.editor.components.configurations.defaultTitle",
   "admin/pages.editor.components.content.delete.error": "admin/pages.editor.components.content.delete.error",
   "admin/pages.editor.components.content.delete.success": "admin/pages.editor.components.content.delete.success",
