@@ -125,7 +125,7 @@
   "admin/pages.editor.components.condition.scope.title": "Apply to",
   "admin/pages.editor.components.condition.title": "Visibility",
   "admin/pages.editor.components.configurations.button.create": "Add content",
-  "admin/pages.editor.components.configurations.createdBy": "created by {vendorName}",
+  "admin/pages.editor.components.configurations.createdBy": "Created by {vendorName}",
   "admin/pages.editor.components.configurations.defaultTitle": "Untitled",
   "admin/pages.editor.components.content.delete.error": "Something went wrong.",
   "admin/pages.editor.components.content.delete.success": "Content deleted.",

@@ -135,7 +135,7 @@ const Card = ({
           defaultMessage="created by {vendorName}"
           values={{ vendorName }}
         >
-          {text => <p className="f7 mb0"> {text} </p>}
+          {text => <p className="f7 mb0 c-muted-2"> {text} </p>}
         </FormattedMessage>
       ) : null}
       <div className="absolute top-0 right-0 mt1" onClick={stopPropagation}>
