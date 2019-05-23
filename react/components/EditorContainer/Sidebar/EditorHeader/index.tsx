@@ -1,31 +1,25 @@
 import React, { ChangeEvent } from 'react'
 import { FormattedMessage } from 'react-intl'
-import { IconArrowBack, Input } from 'vtex.styleguide'
+import { IconArrowBack } from 'vtex.styleguide'
 
-import SaveButton from './SaveButton'
+import EditableText from './EditableText'
 
 interface Props {
   isTitleEditable?: boolean
-  isLoading?: boolean
   onClose: () => void
-  onSave?: () => void
   onTitleChange?: (e: ChangeEvent<HTMLInputElement>) => void
-  shouldDisableSaveButton?: boolean
   title?: string
 }
 
 const EditorHeader: React.FunctionComponent<Props> = ({
   isTitleEditable = false,
-  isLoading,
   onClose,
-  onSave,
   onTitleChange,
-  shouldDisableSaveButton = false,
   title,
 }) => (
-  <div className={`w-100 pv4 bb bw1 b--light-silver`}>
+  <div className="w-100 mt5">
     <div className="w-100 pl5 flex justify-between">
-      <div className={`flex items-center ${onSave ? 'w-100' : ''}`}>
+      <div className="flex items-center">
         <span className="pointer" onClick={onClose}>
           <IconArrowBack size={16} color="#585959" />
         </span>
@@ -41,24 +35,13 @@ const EditorHeader: React.FunctionComponent<Props> = ({
               defaultMessage="Untitled"
             >
               {placeholder => (
-                <Input
-                  size="small"
+                <EditableText
                   value={title}
                   onChange={onTitleChange}
-                  placeholder={placeholder}
-                >
-                  {title}
-                </Input>
+                  placeholder={placeholder as string}
+                />
               )}
             </FormattedMessage>
-          )}
-          {onSave && (
-            <SaveButton
-              isDisabled={shouldDisableSaveButton}
-              isLoading={isLoading || false}
-              onClick={onSave}
-              variation="tertiary"
-            />
           )}
         </div>
       </div>

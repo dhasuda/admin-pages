@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 
 import ContentContainer from '../../ContentContainer'
-import EditorHeader from '../../EditorHeader'
 import { getIsDefaultContent } from '../../utils'
 import Card from './Card'
 import CreateButton from './CreateButton'
+import ListHeader from './ListHeader'
 
 interface Props {
   configurations: ExtensionConfiguration[]
@@ -32,7 +32,7 @@ const List: React.FunctionComponent<Props> = ({
   title,
 }) => (
   <Fragment>
-    <EditorHeader onClose={onClose} title={title} />
+    <ListHeader onClose={onClose} title={title} />
     <ContentContainer isLoading={editor.isLoading}>
       {configurations.map(
         (configuration: ExtensionConfiguration, index: number) => (

@@ -1,7 +1,8 @@
 import { JSONSchema6 } from 'json-schema'
 import React, { Fragment, useMemo } from 'react'
-import { injectIntl } from 'react-intl'
+import { FormattedMessage, injectIntl } from 'react-intl'
 import { FormProps } from 'react-jsonschema-form'
+import { Button } from 'vtex.styleguide'
 
 import {
   getComponentSchema,
@@ -100,16 +101,13 @@ const ComponentEditor: React.FunctionComponent<Props> = ({
 
   return (
     <Fragment>
-      <EditorHeader
-        isTitleEditable={true}
-        isLoading={isLoading}
-        onClose={onClose}
-        onSave={onSave}
-        onTitleChange={onTitleChange}
-        shouldDisableSaveButton={shouldDisableSaveButton}
-        title={title}
-      />
       <div className="h-100 overflow-y-auto overflow-x-hidden">
+        <EditorHeader
+          isTitleEditable={isContent}
+          onClose={onClose}
+          onTitleChange={onTitleChange}
+          title={title}
+        />
         <div className="relative bg-white flex flex-column justify-between size-editor w-100 pb3 ph5">
           <Form
             formContext={{
@@ -126,6 +124,27 @@ const ComponentEditor: React.FunctionComponent<Props> = ({
           <div id="form__error-list-template___alert" />
         </div>
         {after}
+      </div>
+      <div className="flex flex-row-reverse w-100 bt bw1 b--light-silver">
+        <div className="pa4">
+          <Button size="small" variation="tertiary" onClick={onClose}>
+            <FormattedMessage
+              id="admin/pages.editor.components.button.cancel"
+              defaultMessage="Cancel"
+            />
+          </Button>
+          <Button
+            size="small"
+            variation="primary"
+            disabled={shouldDisableSaveButton}
+            onClick={onSave}
+          >
+            <FormattedMessage
+              id="admin/pages.editor.components.button.save"
+              defaultMessage="Save"
+            />
+          </Button>
+        </div>
       </div>
     </Fragment>
   )
