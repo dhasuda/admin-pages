@@ -54,6 +54,11 @@ declare global {
     statements: ConditionStatementArg[]
   }
 
+  interface PageMetaTags {
+    description?: string
+    keywords?: string[]
+  }
+
   interface Page {
     pageId?: string
     condition: ConditionArg
@@ -67,6 +72,7 @@ declare global {
     declarer: string | null
     domain: string
     interfaceId: string
+    metaTags?: PageMetaTags
     pages: Page[]
     path: string
     routeId: string
