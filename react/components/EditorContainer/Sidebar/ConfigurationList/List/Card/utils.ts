@@ -4,7 +4,6 @@ export const getTextFromContext = ({
   context,
   isSitewide,
   intl,
-  path,
 }: GetTextFromContextArgs) => {
   if (isSitewide) {
     return intl.formatMessage({
@@ -18,10 +17,7 @@ export const getTextFromContext = ({
     })
   }
 
-  return intl.formatMessage(
-    {
-      id: `admin/pages.editor.configuration.tag.${context.type}`,
-    },
-    { id: context.type === 'route' ? path : context.id }
-  )
+  return intl.formatMessage({
+    id: `admin/pages.editor.configuration.tag.page`,
+  })
 }
