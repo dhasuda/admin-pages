@@ -40,16 +40,13 @@ const Content = (props: Props) => {
 
   const path = useRef('')
 
-  useEffect(
-    () => {
-      if (path.current !== iframeRuntime.route.path) {
-        setComponents(getInitialComponents(props))
-        editor.setIsLoading(false)
-      }
-      path.current = iframeRuntime.route.path
-    },
-    [iframeRuntime]
-  )
+  useEffect(() => {
+    if (path.current !== iframeRuntime.route.path) {
+      setComponents(getInitialComponents(props))
+      editor.setIsLoading(false)
+    }
+    path.current = iframeRuntime.route.path
+  }, [iframeRuntime])
 
   if (editor.editTreePath === null) {
     return (

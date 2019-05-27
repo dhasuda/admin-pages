@@ -18,6 +18,10 @@ export const getBlockPath = (
 ): BlockPath => {
   const splitTreePath = treePath.split('/')
 
+  if (!extensions[treePath]) {
+    return []
+  }
+
   const blockId = extensions[treePath].blockId
   const blockRole = getBlockRole(splitTreePath[splitTreePath.length - 1])
 
