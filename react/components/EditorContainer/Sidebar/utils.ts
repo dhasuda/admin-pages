@@ -121,7 +121,7 @@ export const getIsSitewide = (extensions: Extensions, editTreePath: string) => {
   const blockPath = getBlockPath(extensions, editTreePath)
 
   return (
-    (blockPath.length > 0 &&
+    (blockPath.length > 1 &&
       ['AFTER', 'AROUND', 'BEFORE'].includes(blockPath[1].role)) ||
     false
   )
