@@ -33,15 +33,6 @@ const List: React.FunctionComponent<Props> = ({ categorizedRoutes }) => (
       titleId="admin/pages.admin.pages.list.section.standard"
     />
     <SectionSeparator />
-    <Section
-      routes={sortRoutes(categorizedRoutes.singleProduct)}
-      titleId="admin/pages.admin.pages.list.section.product"
-    />
-    <SectionSeparator />
-    <Section
-      routes={sortRoutes(categorizedRoutes.multipleProducts)}
-      titleId="admin/pages.admin.pages.list.section.productCollections"
-    />
   </Fragment>
 )
 

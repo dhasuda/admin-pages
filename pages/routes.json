@@ -2,6 +2,9 @@
   "admin.cms.pages.page-list": {
     "path": "/admin/cms/pages"
   },
+  "admin.email.pages.page-list": {
+    "path": "/admin/email/pages"
+  },
   "admin.cms.pages.page-details": {
     "path": "/admin/cms/pages/*id"
   },
